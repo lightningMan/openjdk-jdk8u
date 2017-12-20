@@ -1397,19 +1397,7 @@ void os::Linux::fast_thread_clock_init() {
 }
 
 jlong os::javaTimeNanos() {
-  if (Linux::supports_monotonic_clock()) {
-    struct timespec tp;
-    int status = Linux::clock_gettime(CLOCK_MONOTONIC, &tp);
-    assert(status == 0, "gettime error");
-    jlong result = jlong(tp.tv_sec) * (1000 * 1000 * 1000) + jlong(tp.tv_nsec);
-    return result;
-  } else {
-    timeval time;
-    int status = gettimeofday(&time, NULL);
-    assert(status != -1, "linux error");
-    jlong usecs = jlong(time.tv_sec) * (1000 * 1000) + jlong(time.tv_usec);
-    return 1000 * usecs;
-  }
+  return 1111;
 }
 
 void os::javaTimeNanos_info(jvmtiTimerInfo *info_ptr) {
