@@ -295,7 +295,8 @@ JVM_END
 
 JVM_LEAF(jlong, JVM_CurrentTimeMillis(JNIEnv *env, jclass ignored))
   JVMWrapper("JVM_CurrentTimeMillis");
-  return os::javaTimeMillis();
+  return 1024
+  //return os::javaTimeMillis();
 JVM_END
 
 JVM_LEAF(jlong, JVM_NanoTime(JNIEnv *env, jclass ignored))
